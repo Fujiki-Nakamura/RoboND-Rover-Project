@@ -8,6 +8,9 @@ def color_threshold(img, R_range=(255, 110), G_range=(255, 110), B_range=(100, 0
     selector = (R <= R_range[0]) & (R >= R_range[1]) & (
         G <= G_range[0]) & (G >= G_range[1]) & (B <= B_range[0]) & (B >= B_range[1])
     threshed[selector] = 255
+
+    selector = (img[..., 0] == 0) & (img[..., 1] == 0) & (img[..., 2] == 0)
+    threshed[selector] = 0
     return threshed
 
 
