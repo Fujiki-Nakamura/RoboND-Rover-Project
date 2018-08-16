@@ -1,10 +1,11 @@
 import numpy as np
 import cv2
 
+
+
+
 # Identify pixels above the threshold
 # Threshold of RGB > 160 does a nice job of identifying ground pixels only
-
-
 def color_thresh(img, rgb_thresh=(160, 160, 160)):
     # Create an array of zeros same xy size as img, but single channel
     color_select = np.zeros_like(img[:, :, 0])
@@ -19,9 +20,8 @@ def color_thresh(img, rgb_thresh=(160, 160, 160)):
     # Return the binary image
     return color_select
 
+
 # Define a function to convert from image coords to rover coords
-
-
 def rover_coords(binary_img):
     # Identify nonzero pixels
     ypos, xpos = binary_img.nonzero()
@@ -42,9 +42,8 @@ def to_polar_coords(x_pixel, y_pixel):
     angles = np.arctan2(y_pixel, x_pixel)
     return dist, angles
 
+
 # Define a function to map rover space pixels to world space
-
-
 def rotate_pix(xpix, ypix, yaw):
     # Convert yaw to radians
     yaw_rad = yaw * np.pi / 180
@@ -76,9 +75,8 @@ def pix_to_world(xpix, ypix, xpos, ypos, yaw, world_size, scale):
     # Return the result
     return x_pix_world, y_pix_world
 
+
 # Define a function to perform a perspective transform
-
-
 def perspect_transform(img, src, dst):
 
     M = cv2.getPerspectiveTransform(src, dst)
