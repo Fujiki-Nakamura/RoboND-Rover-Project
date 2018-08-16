@@ -141,7 +141,7 @@ def perception_step(Rover):
     rocks = color_threshold(
         warped, R_range=(255, 120), G_range=(255, 120), B_range=(100, 0))
     obstacles = color_threshold(
-        warped, R_range=(170, 0), G_range=(170, 0), B_range=(170, 0))
+        warped, R_range=(120, 0), G_range=(120, 0), B_range=(120, 0))
     # 4)
     Rover.vision_image[:, :, 0] = obstacles
     Rover.vision_image[:, :, 1] = rocks
