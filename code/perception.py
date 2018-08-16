@@ -136,11 +136,12 @@ def perception_step(Rover):
     # 2)
     warped = perspect_transform(Rover.img, source, destination)
     # 3)
-    navigable = color_thresh(warped, rgb_thresh=(160, 160, 160))
-    rocks = color_threshold(warped, R_range=(
-        255, 120), G_range=(255, 120), B_range=(100, 0))
-    obstacles = color_threshold(warped, R_range=(
-        100, 0), G_range=(100, 0), B_range=(100, 0))
+    navigable = color_threshold(
+        warped, R_range=(255, 171), G_range=(255, 171), B_range=(255, 171))
+    rocks = color_threshold(
+        warped, R_range=(255, 120), G_range=(255, 120), B_range=(100, 0))
+    obstacles = color_threshold(
+        warped, R_range=(170, 0), G_range=(170, 0), B_range=(170, 0))
     # 4)
     Rover.vision_image[:, :, 0] = obstacles
     Rover.vision_image[:, :, 1] = rocks
