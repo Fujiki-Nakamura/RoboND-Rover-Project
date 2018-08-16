@@ -53,3 +53,6 @@ Graphics Quality: Good
 Screen Resolution: 1024x768
 FPS: 27
 ```
+
+The results were almost good not perfect. The rover sometimes moved aruond the same area and got stuck there. To avoid this behavior and to improve its exploration, the rover can remember where it has reached by storing the coodinates where it has visited. Then it can be encouraged to move to the area it has never visited.
+In the results, the rover didn't pick up rock samples (although it sometimes happened to pick up one). In order to pick up rock samples not by chance, the rover can speed down if it finds a rock sample. Then, it can approach to it by using the location information of the sample appearing in the rover coordinate.
